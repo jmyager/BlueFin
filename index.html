@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="reset.css" rel="stylesheet" type="text/css" />
+    <link href="main.css" rel="stylesheet" type="text/css" />
+    <title>Blue Fin</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h2 class="center">ROI Calculator</h2>
+            <form id="roiForm">
+                Purchase Price: <input type="text" name="price"><br>
+                Monthly Income (Zillow): <input type="text" name="income"><br>
+                Monthly Cost (Redfin): <input type="text" name="cost"><br>
+                Downpayment: <input type="text" name="downpayment"><br>
+                <input type="submit" value="Submit">
+                <hr>
+                <p>Cash Flow (Monthly): $<span id="monthlyCashFlow"></span></p>
+                <p>Cash Flow (Yearly): $<span id="yearlyCashFlow"></span></p>
+                <p>ROI: <span id="roi"></span>%</p>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
