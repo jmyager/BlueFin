@@ -20,7 +20,7 @@ $(function() { //shorthand document.ready function
         downpayment = data[1].value;
         income = data[2].value;
         cost = data[3].value;
-        maintenance = data[4].value / 100;
+        maintenance = data[4].value.replace("%","") / 100;
         hoa = data[5].value;
         vacancy = data[6].value;
 
