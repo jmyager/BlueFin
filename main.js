@@ -9,7 +9,8 @@ let vacancy = 0
 // Output variables
 let monthlyCashFlow = 0;
 let yearlyCashFlow = 0;
-let roi = 0;
+let roiWithMaintenance = 0;
+let roiWithoutMaintenance = 0;
 
 $(function() { //shorthand document.ready function
     $('#roiForm').on('submit', function(e) { //use on if jQuery 1.7+
@@ -25,11 +26,17 @@ $(function() { //shorthand document.ready function
         vacancy = data[6].value;
 
         // Calculations
-        let monthlycashFlow = (income - cost - hoa - ((price * maintenance)/12)).toFixed(2);
-        let yearlyCashFlow = ((monthlycashFlow * 12) * ((12 - vacancy)/12)).toFixed(2);
-        let roi = ((yearlyCashFlow / price) * 100).toFixed(2);
-        $("#monthlyCashFlow").text(monthlycashFlow);
+        monthlyCashFlow = (income - cost - hoa - ((price * maintenance)/12)).toFixed(2);
+        yearlyCashFlow = ((monthlyCashFlow * 12) * ((12 - vacancy)/12)).toFixed(2);
+        roiWithMaintenance = ((yearlyCashFlow / downpayment) * 100).toFixed(2);
+        let monthlyCashFlowWithoutMaintenance = (income - cost - hoa).toFixed(2);
+        console.log(monthlyCashFlowWithoutMaintenance);
+        let yearlyCashFlowWithoutMaintenance = ((monthlyCashFlowWithoutMaintenance * 12) * ((12 - vacancy)/12)).toFixed(2);
+        console.log(yearlyCashFlowWithoutMaintenance);
+        roiWithoutMaintenance = ((yearlyCashFlowWithoutMaintenance / downpayment) * 100).toFixed(2);
+        $("#monthlyCashFlow").text(monthlyCashFlow);
         $("#yearlyCashFlow").text(yearlyCashFlow);
-        $("#roi").text(roi);
+        $("#roiWithMaintenance").text(roiWithMaintenance);
+        $("#roiWithoutMaintenance").text(roiWithoutMaintenance);
     });
 });
